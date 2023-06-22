@@ -1,12 +1,12 @@
-import { PhonebookForm } from './PhonebookForm';
-import { ContactsList } from './ContactsList';
-import { Filter } from './ContactsFilter';
-import { Title } from './Title';
 import { Main } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError, selectIsLoading } from 'redux/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
+import PhonebookForm from './PhonebookForm/PhonebookForm';
+import Title from './Title/Title';
+import Filter from './ContactsFilter/Filter';
+import ContactsList from './ContactsList/ContactsList';
 
 export const App = () => {
   const dispatch = useDispatch();

@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
-export const PhonebookForm = ({ title }) => {
+const PhonebookForm = ({ title }) => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
@@ -92,3 +92,5 @@ export const PhonebookForm = ({ title }) => {
 PhonebookForm.propTypes = {
   title: PropTypes.string.isRequired,
 };
+
+export default PhonebookForm;

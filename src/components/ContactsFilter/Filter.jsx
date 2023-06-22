@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterContact } from 'redux/filterSlice';
 import { selectFilter } from 'redux/selectors';
 
-export const Filter = () => {
+const Filter = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
   const onChange = e => dispatch(filterContact(e.target.value));
@@ -21,3 +21,5 @@ export const Filter = () => {
     </FilterLabel>
   );
 };
+
+export default Filter;
