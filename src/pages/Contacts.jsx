@@ -1,14 +1,13 @@
-import { Main } from './App.styled';
+import Filter from 'components/ContactsFilter/Filter';
+import ContactsList from 'components/ContactsList/ContactsList';
+import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
+import Title from 'components/Title/Title';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from 'redux/selectors';
-import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
-import PhonebookForm from './PhonebookForm/PhonebookForm';
-import Title from './Title/Title';
-import Filter from './ContactsFilter/Filter';
-import ContactsList from './ContactsList/ContactsList';
+import { selectError, selectIsLoading } from 'redux/selectors';
 
-export const App = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -18,13 +17,15 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Main>
+    <div>
       <PhonebookForm title="Phonebook" />
       <Title title="Contacts"></Title>
       {isLoading && !error && <b>Request in progress...</b>}
       <Filter></Filter>
       <ContactsList title="Contacts" />
       {error && <b>{error}</b>}
-    </Main>
+    </div>
   );
 };
+
+export default Contacts;

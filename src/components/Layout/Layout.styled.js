@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 export const Main = styled.div`
-  width: fit-content;
   margin: 50px auto;
   padding: 15px;
   background-color: rgb(252, 252, 253);
