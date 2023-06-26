@@ -4,11 +4,13 @@ import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
 import Title from 'components/Title/Title';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { selectisAuthorized } from 'redux/auth/selectors';
+import { fetchContacts } from 'redux/contacts/operations';
+import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 
 const Contacts = () => {
   const dispatch = useDispatch();
+  const isAuthorizated = useSelector(selectisAuthorized);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -17,14 +19,20 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <PhonebookForm title="Phonebook" />
-      <Title title="Contacts"></Title>
-      {isLoading && !error && <b>Request in progress...</b>}
-      <Filter></Filter>
-      <ContactsList title="Contacts" />
-      {error && <b>{error}</b>}
-    </div>
+    <>
+      {isAuthorizated ? (
+        <div>
+          <PhonebookForm title="Phonebook" />
+          <Title title="Contacts"></Title>
+          {isLoading && !error && <b>Request in progress...</b>}
+          <Filter></Filter>
+          <ContactsList title="Contacts" />
+          {error && <b>{error}</b>}
+        </div>
+      ) : (
+        <h1>Please log in to access the phonebook</h1>
+      )}
+    </>
   );
 };
 

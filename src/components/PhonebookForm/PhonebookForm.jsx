@@ -8,8 +8,8 @@ import {
   StyledFormTitle,
 } from './PhonebookForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 const PhonebookForm = ({ title }) => {
   const contacts = useSelector(selectContacts);
@@ -27,11 +27,11 @@ const PhonebookForm = ({ title }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const newContact = {
-      name: name,
-      phone: number,
+      name,
+      number,
     };
     const normalizedContact = newContact.name.toLowerCase().trim();
-    const normalizedNumber = newContact.phone.replaceAll(' ', '');
+    const normalizedNumber = newContact.number.replaceAll(' ', '');
 
     if (
       contacts.some(el => el.name.toLowerCase().trim() === normalizedContact)
@@ -41,7 +41,7 @@ const PhonebookForm = ({ title }) => {
     }
 
     if (
-      contacts.some(el => el.phone.replaceAll(' ', '') === normalizedNumber)
+      contacts.some(el => el.number.replaceAll(' ', '') === normalizedNumber)
     ) {
       alert(`The contact number ${normalizedNumber} is already exists!`);
       return;
