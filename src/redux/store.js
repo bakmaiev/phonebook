@@ -14,7 +14,7 @@ import { persistedAuthReducer } from './auth/authSlice';
 
 export const store = configureStore({
   reducer: {
-    user: persistedAuthReducer,
+    auth: persistedAuthReducer,
     contacts: contactsReducer,
     filter: filterReducer,
   },

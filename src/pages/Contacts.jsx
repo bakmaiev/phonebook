@@ -4,13 +4,13 @@ import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
 import Title from 'components/Title/Title';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectisAuthorized } from 'redux/auth/selectors';
+import { selectIsAuthorized } from 'redux/auth/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 
 const Contacts = () => {
   const dispatch = useDispatch();
-  const isAuthorizated = useSelector(selectisAuthorized);
+  const isAuthorizated = useSelector(selectIsAuthorized);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
