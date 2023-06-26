@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from 'redux/contacts/selectors';
+import { useDispatch } from 'react-redux';
 import { Suspense, lazy, useEffect } from 'react';
-import { fetchContacts } from 'redux/contacts/operations';
 import { Route, Routes } from 'react-router-dom';
+import { refreshUser } from 'redux/auth/operations';
 
 const Layout = lazy(() => import('../Layout/Layout'));
 const Home = lazy(() => import('../../pages/Home'));
@@ -11,6 +10,12 @@ const Register = lazy(() => import('../../pages/Register'));
 const Contacts = lazy(() => import('../../pages/Contacts'));
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
       <Suspense fallback={null}>
