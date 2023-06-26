@@ -11,18 +11,18 @@ const ContactsList = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  // const getVisibleContacts = () =>
-  //   contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filter.toLowerCase())
-  //   );
+  const getVisibleContacts = () =>
+    contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
 
-  // const visibleContacts = getVisibleContacts();
+  const visibleContacts = getVisibleContacts();
 
   return (
     <StyledWrapper>
       <ul>
-        {Array.isArray(contacts) &&
-          contacts.map(contact => {
+        {Array.isArray(visibleContacts) &&
+          visibleContacts.map(contact => {
             return (
               <ContactsItem key={contact.id}>
                 <span>
