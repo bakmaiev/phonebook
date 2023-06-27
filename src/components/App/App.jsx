@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Suspense, lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/operations';
 import RestrictedRoute from 'components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
-import { selectIsRefreshing } from 'redux/auth/selectors';
+// import { selectIsRefreshing } from 'redux/auth/selectors';
 import Layout from 'components/Layout/Layout';
 import Home from 'pages/Home';
 import Contacts from 'pages/Contacts';
@@ -19,7 +19,7 @@ import Register from 'pages/Register';
 
 const App = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectIsRefreshing);
+  // const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
