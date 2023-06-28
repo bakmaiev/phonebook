@@ -19,7 +19,7 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
       {isAuthorized ? (
         <div>
           <PhonebookForm title="Phonebook" />
@@ -32,7 +32,7 @@ const Contacts = () => {
       ) : (
         <h1>Please log in to access the phonebook</h1>
       )}
-    </>
+    </div>
   );
 };
 
