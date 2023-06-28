@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-// axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+import { Notify } from 'notiflix';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -10,7 +9,7 @@ export const fetchContacts = createAsyncThunk(
       const { data } = await axios.get('/contacts');
       return data;
     } catch (e) {
-      rejectWithValue(e.message);
+      return rejectWithValue(e.message);
     }
   }
 );
@@ -20,9 +19,10 @@ export const addContact = createAsyncThunk(
   async (contact, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/contacts', contact);
+      Notify.success(`${contact.name} added to phonebook successfuly.`);
       return data;
     } catch (e) {
-      rejectWithValue(e.message);
+      return rejectWithValue(e.message);
     }
   }
 );
@@ -32,9 +32,10 @@ export const deleteContact = createAsyncThunk(
   async (contactId, { rejectWithValue }) => {
     try {
       const { data } = await axios.delete(`/contacts/${contactId}`);
+      Notify.warning('Contact deleted successfuly.');
       return data;
     } catch (e) {
-      rejectWithValue(e.message);
+      return rejectWithValue(e.message);
     }
   }
 );

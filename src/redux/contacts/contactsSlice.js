@@ -9,12 +9,11 @@ const initialState = {
 
 const handlePending = state => {
   state.isLoading = true;
-  state.error = null;
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
-  state.items = action.payload;
+  state.error = action.payload;
 };
 
 const contactsSlice = createSlice({
@@ -24,16 +23,19 @@ const contactsSlice = createSlice({
     builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         state.items = action.payload;
       })
 
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         state.items.push(action.payload);
       })
 
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         state.items = state.items.filter(
           contact => contact.id !== action.payload.id
         );

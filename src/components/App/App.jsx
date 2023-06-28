@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/operations';
@@ -10,6 +10,7 @@ import Home from 'pages/Home';
 import Contacts from 'pages/Contacts';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
+import { selectIsRefreshing } from 'redux/auth/selectors';
 
 // const Layout = lazy(() => import('../Layout/Layout'));
 // const Home = lazy(() => import('../../pages/Home'));
@@ -19,7 +20,7 @@ import Register from 'pages/Register';
 
 const App = () => {
   const dispatch = useDispatch();
-  // const isRefreshing = useSelector(selectIsRefreshing);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -27,7 +28,7 @@ const App = () => {
 
   return (
     <>
-      {/* {!isRefreshing && (
+      {!isRefreshing && (
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />}></Route>
@@ -55,8 +56,8 @@ const App = () => {
           </Route>
           <Route path="*" element={<p>Not found</p>} />
         </Routes>
-      )} */}
-      <Routes>
+      )}
+      {/* <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route
@@ -79,7 +80,7 @@ const App = () => {
           ></Route>
         </Route>
         <Route path="*" element={<p>Not found</p>} />
-      </Routes>
+      </Routes> */}
     </>
   );
 };
