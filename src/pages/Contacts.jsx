@@ -18,7 +18,7 @@ const Contacts = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  return !isAuthorized ? (
+  return isAuthorized ? (
     <div>
       <PhonebookForm title="Phonebook" />
       <Title title="Contacts"></Title>
