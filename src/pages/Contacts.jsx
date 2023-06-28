@@ -10,7 +10,7 @@ import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 
 const Contacts = () => {
   const dispatch = useDispatch();
-  const isAuthorizated = useSelector(selectIsAuthorized);
+  const isAuthorized = useSelector(selectIsAuthorized);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -20,7 +20,7 @@ const Contacts = () => {
 
   return (
     <>
-      {isAuthorizated ? (
+      {isAuthorized ? (
         <div>
           <PhonebookForm title="Phonebook" />
           <Title title="Contacts"></Title>
