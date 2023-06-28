@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
 import { loginUser, logoutUser, refreshUser, registerUser } from './operations';
 
 const initialState = {
@@ -10,48 +9,62 @@ const initialState = {
   error: null,
 };
 
-const handleRejected = (state, action) => {
-  state.isRefreshing = false;
-  state.error = action.payload;
-};
-
-const handlePending = state => {
-  state.isRefreshing = true;
-};
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
     builder
+      .addCase(registerUser.pending, state => {
+        state.isRefreshing = true;
+      })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isAuthorized = true;
         state.isRefreshing = false;
       })
-
+      .addCase(registerUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+      })
+      .addCase(loginUser.pending, state => {
+        state.isRefreshing = true;
+      })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isAuthorized = true;
         state.isRefreshing = false;
       })
-
+      .addCase(loginUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+      })
+      .addCase(logoutUser.pending, state => {
+        state.isRefreshing = true;
+      })
       .addCase(logoutUser.fulfilled, state => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isAuthorized = false;
         state.isRefreshing = false;
       })
-
+      .addCase(logoutUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+      })
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+      })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isAuthorized = true;
         state.isRefreshing = false;
       })
-      .addMatcher(action => action.type.endsWith('/rejected'), handleRejected)
-      .addMatcher(action => action.type.endsWith('/pending'), handlePending);
+      .addCase(refreshUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+      });
   },
 });
 
