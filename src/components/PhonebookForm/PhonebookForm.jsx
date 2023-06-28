@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
+import { Notify } from 'notiflix';
 
 const PhonebookForm = ({ title }) => {
   const contacts = useSelector(selectContacts);
@@ -36,14 +37,18 @@ const PhonebookForm = ({ title }) => {
     if (
       contacts.some(el => el.name.toLowerCase().trim() === normalizedContact)
     ) {
-      alert(`The contact name ${normalizedContact} is already exists!`);
+      Notify.warning(
+        `The contact name ${normalizedContact} is already exists!`
+      );
       return;
     }
 
     if (
       contacts.some(el => el.number.replaceAll(' ', '') === normalizedNumber)
     ) {
-      alert(`The contact number ${normalizedNumber} is already exists!`);
+      Notify.warning(
+        `The contact number ${normalizedNumber} is already exists!`
+      );
       return;
     }
 

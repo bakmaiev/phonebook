@@ -8,7 +8,7 @@ const Layout = () => {
     <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
       <Header />
       <Main>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<p>Loading...</p>}>
           <Outlet />
         </Suspense>
       </Main>

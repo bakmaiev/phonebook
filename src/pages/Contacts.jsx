@@ -18,21 +18,17 @@ const Contacts = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  return (
+  return !isAuthorized ? (
     <div>
-      {isAuthorized ? (
-        <div>
-          <PhonebookForm title="Phonebook" />
-          <Title title="Contacts"></Title>
-          {isLoading && !error && <b>Request in progress...</b>}
-          <Filter></Filter>
-          <ContactsList title="Contacts" />
-          {error && <b>{error}</b>}
-        </div>
-      ) : (
-        <h1>Please log in to access the phonebook</h1>
-      )}
+      <PhonebookForm title="Phonebook" />
+      <Title title="Contacts"></Title>
+      {isLoading && !error && <b>Request in progress...</b>}
+      <Filter></Filter>
+      <ContactsList title="Contacts" />
+      {error && <b>{error}</b>}
     </div>
+  ) : (
+    <h2>Sign in to access the phonebook!</h2>
   );
 };
 
