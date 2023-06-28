@@ -4,14 +4,15 @@ import UserMenu from 'components/UserMenu/UserMenu';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsAuthorized } from 'redux/auth/selectors';
+import { StyledHeader } from './Header.styled';
 
 const Header = () => {
   const isAuthorizated = useSelector(selectIsAuthorized);
   return (
-    <header>
+    <StyledHeader>
       <Navigation />
       {isAuthorizated ? <UserMenu /> : <AuthNav />}
-    </header>
+    </StyledHeader>
   );
 };
 
