@@ -5,7 +5,18 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
+    <div
+      style={{
+        width: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: 14,
+      }}
+    >
       <Header />
       <Main>
         <Suspense fallback={<p>Loading...</p>}>
