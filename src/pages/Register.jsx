@@ -3,7 +3,6 @@ import {
   Avatar,
   Box,
   Button,
-  Container,
   CssBaseline,
   Grid,
   Link,
@@ -46,6 +45,8 @@ const Register = () => {
         <CssBaseline />
         <Grid
           item
+          xs={false}
+          sm={4}
           md={7}
           sx={{
             backgroundImage:
@@ -69,7 +70,7 @@ const Register = () => {
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h2" variant="h5">
               Sign up
             </Typography>
             <Box

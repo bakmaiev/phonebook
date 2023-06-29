@@ -2,16 +2,13 @@ import React, { Suspense } from 'react';
 import Header from '../Header/Header';
 import { Main } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
+import Footer from 'components/Footer/Footer';
 
 const Layout = () => {
   return (
     <div
       style={{
         width: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
         padding: 14,
@@ -23,6 +20,7 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </Main>
+      <Footer />
     </div>
   );
 };

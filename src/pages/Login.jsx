@@ -3,7 +3,6 @@ import {
   Avatar,
   Box,
   Button,
-  Container,
   CssBaseline,
   Grid,
   Link,
@@ -43,6 +42,8 @@ const Login = () => {
         <CssBaseline />
         <Grid
           item
+          xs={false}
+          sm={4}
           md={7}
           sx={{
             backgroundImage:
@@ -66,7 +67,7 @@ const Login = () => {
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h2" variant="h5">
               Sign in
             </Typography>
             <Box
