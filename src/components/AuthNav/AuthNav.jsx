@@ -1,6 +1,6 @@
-import { Button, Toolbar } from '@mui/material';
+import { Button } from '@mui/material';
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const AuthNav = () => {
   const navigate = useNavigate();

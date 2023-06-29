@@ -4,15 +4,11 @@ import UserMenu from 'components/UserMenu/UserMenu';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsAuthorized } from 'redux/auth/selectors';
-import { Button, IconButton, Toolbar, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Toolbar } from '@mui/material';
 
 const Header = () => {
-  const navigate = useNavigate();
   const isAuthorizated = useSelector(selectIsAuthorized);
-  const handleHomeBtn = e => {
-    navigate('/');
-  };
+
   return (
     <>
       <Toolbar
@@ -32,12 +28,6 @@ const Header = () => {
       >
         <Navigation />
         {isAuthorizated ? <UserMenu /> : <AuthNav />}
-        {/* <IconButton>
-          <SearchIcon />
-        </IconButton> */}
-        {/* <Button variant="outlined" size="small">
-          Sign up
-        </Button> */}
       </Toolbar>
     </>
   );
