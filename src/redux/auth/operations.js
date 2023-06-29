@@ -36,6 +36,7 @@ export const loginUser = createAsyncThunk(
       Notify.success('You have successfully logged in');
       return data;
     } catch (e) {
+      Notify.failure(`Log in error: ${e.message}`);
       return rejectWithValue(e.message);
     }
   }
