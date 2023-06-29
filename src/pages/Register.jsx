@@ -62,6 +62,7 @@ const Register = () => {
             sx={{
               marginTop: 8,
               marginBottom: 10,
+              padding: 2,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',

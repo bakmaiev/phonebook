@@ -1,17 +1,36 @@
 import React from 'react';
-import { Link, Typography } from '@mui/material';
-import { StyledFooter } from './Footer.styled';
+import { Box, Link, Toolbar, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
-    <StyledFooter>
-      <Typography variant="body2" color="text.primary">
+    <Box
+      component="footer"
+      sx={{
+        width: '100%',
+        background: '#fcfcfd',
+        borderRadius: '4px',
+        borderWidth: 0,
+        boxShadow: 2,
+        textAlign: 'center',
+      }}
+    >
+      <Typography
+        variant="body1"
+        color="text.primary"
+        sx={{
+          padding: 2,
+        }}
+      >
         {'Created by © '}
-        <Link color="inherit" href="https://www.linkedin.com/in/bakmaiev/">
+        <Link
+          color="inherit"
+          href="https://www.linkedin.com/in/bakmaiev/"
+          target="_blank"
+        >
           Bakmaiev Pavlo
         </Link>
       </Typography>
-    </StyledFooter>
+    </Box>
   );
 };
 

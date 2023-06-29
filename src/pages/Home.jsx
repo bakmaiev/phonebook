@@ -50,7 +50,7 @@ const Home = () => {
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <PhoneIphoneIcon />
             </Avatar>
-            <Typography component="h1" variant="h3">
+            <Typography component="h1" variant="h4">
               Phonebook
             </Typography>
             <Typography
