@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuthorized } from 'redux/auth/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Contacts = () => {
     <div>
       <PhonebookForm title="Phonebook" />
       <Title title="Contacts"></Title>
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <CircularProgress color="inherit" />}
       <Filter></Filter>
       <ContactsList title="Contacts" />
       {error && <b>{error}</b>}

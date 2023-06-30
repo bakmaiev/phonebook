@@ -12,6 +12,7 @@ const Header = () => {
   return (
     <>
       <Toolbar
+        component="header"
         sx={{
           height: '48px',
           justifyContent: 'space-between',

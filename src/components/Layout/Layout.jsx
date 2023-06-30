@@ -3,11 +3,12 @@ import Header from '../Header/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from 'components/Footer/Footer';
 import { Box } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Layout = () => {
   return (
     <Box
-      component="main"
+      className="container"
       sx={{
         width: '100vh',
         marginLeft: 'auto',
@@ -20,9 +21,11 @@ const Layout = () => {
       }}
     >
       <Header />
-      <Suspense fallback={<p>Loading...</p>}>
-        <Outlet />
-      </Suspense>
+      <Box component="main">
+        <Suspense fallback={<CircularProgress color="inherit" />}>
+          <Outlet />
+        </Suspense>
+      </Box>
       <Footer />
     </Box>
   );
