@@ -21,7 +21,7 @@ const Layout = () => {
       }}
     >
       <Header />
-      <Box component="main" sx={{ height: '100vh' }}>
+      <Box component="main" sx={{ minHeight: '100vh' }}>
         <Suspense fallback={<CircularProgress color="inherit" />}>
           <Outlet />
         </Suspense>
