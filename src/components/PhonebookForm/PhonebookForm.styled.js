@@ -58,6 +58,7 @@ export const FormInput = styled.input`
   border-radius: 2px;
   background-color: rgb(255, 255, 255);
   border: none;
+  resize: none;
   outline: none;
   width: 280px;
   border-bottom: 1px solid transparent;
