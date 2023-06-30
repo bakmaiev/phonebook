@@ -39,7 +39,9 @@ const App = () => {
           ></Route>
           <Route
             path="/contacts"
-            element={<PrivateRoute redirectTo="/" element={<Contacts />} />}
+            element={
+              <PrivateRoute redirectTo="/login" element={<Contacts />} />
+            }
           ></Route>
         </Route>
         <Route path="*" element={<p>Not found</p>} />

@@ -9,7 +9,7 @@ export const FilterInput = styled.input`
   background-color: rgb(255, 255, 255);
   border: none;
   outline: none;
-  width: 300px;
+  width: 280px;
 
   border-bottom: 1px solid transparent;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,

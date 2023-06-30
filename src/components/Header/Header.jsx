@@ -13,7 +13,6 @@ const Header = () => {
     <>
       <Toolbar
         sx={{
-          width: '100%',
           height: '48px',
           justifyContent: 'space-between',
           alignItems: 'center',

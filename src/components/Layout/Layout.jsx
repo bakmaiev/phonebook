@@ -1,27 +1,30 @@
 import React, { Suspense } from 'react';
 import Header from '../Header/Header';
-import { Main } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
 import Footer from 'components/Footer/Footer';
+import { Box } from '@mui/material';
 
 const Layout = () => {
   return (
-    <div
-      style={{
+    <Box
+      component="main"
+      sx={{
         width: '100vh',
         marginLeft: 'auto',
         marginRight: 'auto',
-        padding: 14,
+        background: '#fcfcfd',
+        borderRadius: '4px',
+        borderWidth: 0,
+        boxShadow: 2,
+        textAlign: 'center',
       }}
     >
       <Header />
-      <Main>
-        <Suspense fallback={<p>Loading...</p>}>
-          <Outlet />
-        </Suspense>
-      </Main>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Outlet />
+      </Suspense>
       <Footer />
-    </div>
+    </Box>
   );
 };
 
