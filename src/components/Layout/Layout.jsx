@@ -11,6 +11,7 @@ const Layout = () => {
       className="container"
       sx={{
         width: '100vh',
+        height: '100vh',
         marginLeft: 'auto',
         marginRight: 'auto',
         background: '#fcfcfd',

@@ -6,7 +6,9 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        width: '100%',
+        position: 'fixed',
+        bottom: 0,
+        width: '100vh',
         background: '#fcfcfd',
         borderRadius: '4px',
         borderWidth: 0,

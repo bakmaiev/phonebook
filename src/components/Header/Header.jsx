@@ -17,13 +17,8 @@ const Header = () => {
           height: '48px',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: '#fcfcfd',
           borderRadius: '4px',
-          borderWidth: 0,
           boxShadow: 2,
-          paddingLeft: '15px',
-          paddingRight: '15px',
-          textAlign: 'center',
         }}
       >
         <Navigation />
