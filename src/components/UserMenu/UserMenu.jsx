@@ -9,7 +9,7 @@ const UserMenu = () => {
   const user = useSelector(selectUser);
 
   return (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
       <Typography component="p" variant="p" color="inherit" align="center">
         Welcome, {user.toUpperCase()}
       </Typography>
