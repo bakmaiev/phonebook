@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Btn,
-  FormInput,
-  FormLabel,
-  StyledForm,
-  StyledFormTitle,
-} from './PhonebookForm.styled';
+import { Btn, FormInput, FormLabel, StyledForm } from './PhonebookForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';

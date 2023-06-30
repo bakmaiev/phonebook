@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import Filter from 'components/ContactsFilter/Filter';
 import ContactsList from 'components/ContactsList/ContactsList';
 import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
@@ -22,13 +21,7 @@ const Contacts = () => {
   return isAuthorized ? (
     <div>
       <PhonebookForm title="Phonebook" />
-      <Typography
-        component="h2"
-        variant="h4"
-        sx={{ textAlign: 'center', mb: '20px' }}
-      >
-        Contacts
-      </Typography>
+      <Title title="Contacts"></Title>
       {isLoading && !error && <b>Request in progress...</b>}
       <Filter></Filter>
       <ContactsList title="Contacts" />
