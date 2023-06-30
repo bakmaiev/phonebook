@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   padding: 20px;
   margin-bottom: 20px;
@@ -21,7 +22,8 @@ export const Btn = styled.button`
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   cursor: pointer;
-  max-width: 100%;
+  width: 300px;
+
   height: 48px;
   padding-left: 15px;
   padding-right: 15px;
@@ -57,7 +59,7 @@ export const FormInput = styled.input`
   background-color: rgb(255, 255, 255);
   border: none;
   outline: none;
-  max-width: 100%;
+  width: 300px;
   border-bottom: 1px solid transparent;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0;

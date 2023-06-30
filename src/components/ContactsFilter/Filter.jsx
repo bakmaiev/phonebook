@@ -10,15 +10,19 @@ const Filter = () => {
   const onChange = e => dispatch(filterContact(e.target.value));
 
   return (
-    <FilterLabel>
-      <span>Search contacts: </span>
-      <FilterInput
-        type="text"
-        name="filter"
-        value={filter}
-        onChange={onChange}
-      />
-    </FilterLabel>
+    <div
+      style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}
+    >
+      <FilterLabel>
+        <span>Search contacts: </span>
+        <FilterInput
+          type="text"
+          name="filter"
+          value={filter}
+          onChange={onChange}
+        />
+      </FilterLabel>
+    </div>
   );
 };
 

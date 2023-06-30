@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 import { Notify } from 'notiflix';
+import { Typography } from '@mui/material';
 
 const PhonebookForm = ({ title }) => {
   const contacts = useSelector(selectContacts);
@@ -64,7 +65,9 @@ const PhonebookForm = ({ title }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledFormTitle>{title}</StyledFormTitle>
+      <Typography component="h2" variant="h4">
+        {title}
+      </Typography>
       <FormLabel>
         <span>Name: </span>
         <FormInput
