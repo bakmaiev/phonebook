@@ -18,7 +18,7 @@ const Home = () => {
     <ThemeProvider theme={defaultTheme}>
       <Grid
         container
-        component="main"
+        component="div"
         sx={{ height: '100vh', justifyContent: 'center' }}
       >
         <CssBaseline />
