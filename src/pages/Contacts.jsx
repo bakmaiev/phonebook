@@ -1,7 +1,6 @@
 import Filter from 'components/ContactsFilter/Filter';
 import ContactsList from 'components/ContactsList/ContactsList';
 import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
-import Title from 'components/Title/Title';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuthorized } from 'redux/auth/selectors';
@@ -20,14 +19,13 @@ const Contacts = () => {
   }, [dispatch]);
 
   return isAuthorized ? (
-    <div>
+    <>
       <PhonebookForm title="Phonebook" />
-      <Title title="Contacts"></Title>
       {isLoading && !error && <CircularProgress color="inherit" />}
       <Filter></Filter>
       <ContactsList title="Contacts" />
       {error && <b>{error}</b>}
-    </div>
+    </>
   ) : (
     <h2>Sign in to access the phonebook!</h2>
   );

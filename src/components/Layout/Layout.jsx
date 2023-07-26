@@ -9,6 +9,7 @@ const Layout = () => {
   return (
     <Box
       className="container"
+      maxWidth="xs"
       sx={{
         width: '100vh',
         marginLeft: 'auto',

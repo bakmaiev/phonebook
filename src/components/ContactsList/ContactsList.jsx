@@ -1,10 +1,19 @@
 import React from 'react';
-import { ContactsItem, StyledWrapper } from './ContactsList.styled';
-import { Btn } from 'components/PhonebookForm/PhonebookForm.styled';
+import PersonIcon from '@mui/icons-material/Person';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
+import {
+  Avatar,
+  Container,
+  IconButton,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+} from '@mui/material';
 
 const ContactsList = () => {
   const contacts = useSelector(selectContacts);
@@ -19,26 +28,44 @@ const ContactsList = () => {
   const visibleContacts = getVisibleContacts();
 
   return (
-    <StyledWrapper>
-      <ul>
+    <Container component="div" maxWidth="sm">
+      <List sx={{ padding: 2 }}>
         {Array.isArray(visibleContacts) &&
           visibleContacts.map(contact => {
             return (
-              <ContactsItem key={contact.id}>
-                <span>
-                  {contact.name}: {contact.number}
-                </span>
-                <Btn
-                  type="button"
-                  onClick={() => dispatch(deleteContact(contact.id))}
-                >
-                  Delete
-                </Btn>
-              </ContactsItem>
+              <ListItem
+                key={contact.id}
+                secondaryAction={
+                  <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={() => dispatch(deleteContact(contact.id))}
+                    sx={{
+                      m: 1,
+                      bgcolor: 'primary.main',
+                    }}
+                  >
+                    <DeleteIcon sx={{ color: 'white' }} />
+                  </IconButton>
+                }
+                sx={{ flexWrap: true, gap: 3 }}
+              >
+                <ListItemAvatar>
+                  <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+                    <PersonIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText sx={{ flexBasis: 40 }}>
+                  {contact.name}
+                </ListItemText>
+                <ListItemText sx={{ flexBasis: 40 }}>
+                  {contact.number}
+                </ListItemText>
+              </ListItem>
             );
           })}
-      </ul>
-    </StyledWrapper>
+      </List>
+    </Container>
   );
 };
 
