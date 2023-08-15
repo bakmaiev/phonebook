@@ -36,8 +36,10 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        console.log(state.items);
+        console.log(action);
         state.items = state.items.filter(
-          contact => contact.id !== action.payload.id
+          contact => contact._id !== action.payload
         );
       })
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)

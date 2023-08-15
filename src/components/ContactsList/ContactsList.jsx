@@ -34,12 +34,12 @@ const ContactsList = () => {
           visibleContacts.map(contact => {
             return (
               <ListItem
-                key={contact.id}
+                key={contact._id}
                 secondaryAction={
                   <IconButton
                     edge="end"
                     aria-label="delete"
-                    onClick={() => dispatch(deleteContact(contact.id))}
+                    onClick={() => dispatch(deleteContact(contact._id))}
                     sx={{
                       m: 1,
                       bgcolor: 'primary.main',

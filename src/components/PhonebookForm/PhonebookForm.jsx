@@ -27,7 +27,7 @@ const schema = yup
       .string()
       .matches(/^[a-zA-Zа-яА-ЯіїІЇґєҐЄ]+([' -][a-zA-Zа-яА-ЯіїІЇґєҐЄ]+)*$/)
       .required('Blabla'),
-    number: yup.number().positive().integer().required(),
+    number: yup.string().required(),
   })
   .required();
 
