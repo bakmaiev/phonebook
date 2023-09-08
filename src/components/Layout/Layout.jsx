@@ -11,7 +11,6 @@ const Layout = () => {
       className="container"
       maxWidth="xs"
       sx={{
-        width: '100vh',
         marginLeft: 'auto',
         marginRight: 'auto',
         background: '#fcfcfd',
@@ -22,7 +21,7 @@ const Layout = () => {
       }}
     >
       <Header />
-      <Box component="main" sx={{ minHeight: '100vh' }}>
+      <Box component="main">
         <Suspense fallback={<CircularProgress color="inherit" />}>
           <Outlet />
         </Suspense>
