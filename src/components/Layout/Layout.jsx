@@ -16,12 +16,12 @@ const Layout = () => {
         background: '#fcfcfd',
         borderRadius: '4px',
         borderWidth: 0,
-        boxShadow: 2,
         textAlign: 'center',
+        minHeight: '100%',
       }}
     >
       <Header />
-      <Box component="main">
+      <Box component="main" sx={{ flex: 1, paddingBottom: '48px' }}>
         <Suspense fallback={<CircularProgress color="inherit" />}>
           <Outlet />
         </Suspense>
