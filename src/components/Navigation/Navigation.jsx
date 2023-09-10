@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectIsAuthorized } from 'redux/auth/selectors';
 import { Button, Typography } from '@mui/material';
+import { StyledNav } from './Navigation.styled';
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Navigation = () => {
     navigate('/contacts');
   };
   return (
-    <nav>
+    <StyledNav>
       <Typography
         component="h2"
         variant="h5"
@@ -28,11 +29,11 @@ const Navigation = () => {
         Phonebook
       </Typography>
       {isAuthorized && (
-        <Button size="small" to="/contacts" onClick={handleContactsBtn}>
+        <Button size="medium" to="/contacts" onClick={handleContactsBtn}>
           Contacts
         </Button>
       )}
-    </nav>
+    </StyledNav>
   );
 };
 

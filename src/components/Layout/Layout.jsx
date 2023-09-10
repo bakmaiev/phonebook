@@ -17,7 +17,7 @@ const Layout = () => {
         borderRadius: '4px',
         borderWidth: 0,
         textAlign: 'center',
-        minHeight: '100%',
+        minHeight: '100vh',
       }}
     >
       <Header />
