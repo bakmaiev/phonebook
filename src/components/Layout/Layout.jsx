@@ -21,7 +21,16 @@ const Layout = () => {
       }}
     >
       <Header />
-      <Box component="main" sx={{ flex: 1, paddingBottom: '48px' }}>
+      <Box
+        component="main"
+        sx={{
+          maxWidth: '1440px',
+          ml: 'auto',
+          mr: 'auto',
+          flex: 1,
+          // paddingBottom: '48px',
+        }}
+      >
         <Suspense fallback={<CircularProgress color="inherit" />}>
           <Outlet />
         </Suspense>

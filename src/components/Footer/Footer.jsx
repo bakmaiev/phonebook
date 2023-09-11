@@ -6,13 +6,11 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        position: 'fixed',
-        bottom: '0',
-        width: '100%',
+        ml: 'auto',
+        mr: 'auto',
         background: '#fcfcfd',
         borderRadius: '4px',
         borderWidth: 0,
-        boxShadow: 2,
         textAlign: 'center',
       }}
     >
