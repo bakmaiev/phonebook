@@ -28,6 +28,7 @@ const Layout = () => {
           ml: 'auto',
           mr: 'auto',
           flex: 1,
+          minHeight: '87vh',
           // paddingBottom: '48px',
         }}
       >
