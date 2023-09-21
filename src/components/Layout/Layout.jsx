@@ -29,7 +29,6 @@ const Layout = () => {
           mr: 'auto',
           flex: 1,
           minHeight: '87vh',
-          // paddingBottom: '48px',
         }}
       >
         <Suspense fallback={<CircularProgress color="inherit" />}>
